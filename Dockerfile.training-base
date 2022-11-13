@@ -1,0 +1,20 @@
+# https://console.cloud.google.com/storage/browser/deeplearning-platform-release/installed-dependencies/containers/m88;tab=objects?_ga=2.49264870.1594978445.1668161991-1121739324.1661533592&pli=1&prefix=&forceOnObjectsSortingFiltering=false
+FROM stable-diffusion_base:latest
+
+
+COPY . .
+RUN eval "$(conda shell.bash hook)" && conda activate training && pip install transformers
+
+    # # - getpass_asterisk
+    # - dependency_injector==4.40.0
+    # # enhance backgrounds
+    # #- realesrgan==0.2.5.0
+    # # - test-tube==0.7.5
+    # - pytorch-lightning
+    # - transformers
+    # - -e git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers
+    # - -e git+https://github.com/openai/CLIP.git@main#egg=clip
+    # - -e git+https://github.com/Birch-san/k-diffusion.git@mps#egg=k_diffusion
+    # # photo to photo for faces
+    # #- -e git+https://github.com/TencentARC/GFPGAN.git#egg=gfpgan
+    # - -e git+https://github.com/invoke-ai/clipseg.git@models-rename#egg=clipseg

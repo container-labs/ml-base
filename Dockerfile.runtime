@@ -1,0 +1,14 @@
+# https://medium.com/the-artificial-impostor/smaller-docker-image-using-multi-stage-build-cb462e349968
+FROM nvidia/cuda:10.0-base
+ARG CONDA_DIR=/opt/conda
+ARG USERNAME=docker
+ARG USERID=1000
+ENV PATH $CONDA_DIR/bin:$PATH
+# Create the user
+RUN useradd --create-home -s /bin/bash --no-user-group -u $USERID $USERNAME && \
+    chown $USERNAME $CONDA_DIR -R && \
+    adduser $USERNAME sudo && \
+    echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+USER $USERNAME
+WORKDIR /home/$USERNAME
+COPY --chown=1000 --from=build /opt/conda/. $CONDA_DIR
