@@ -6,10 +6,10 @@ WORKDIR /ml-workspace
 
 # among other things, adds add-apt-repository
 # used to install newer versions of Python
-RUN apt install -y software-properties-common
-RUN add-apt-repository -y 'ppa:deadsnakes/ppa'
-RUN apt update -y && apt install python3.9 -y
-RUN apt install python3.9-dev -y
+# RUN apt install -y software-properties-common
+# RUN add-apt-repository -y 'ppa:deadsnakes/ppa'
+# RUN apt update -y && apt install python3.9 -y
+# RUN apt install python3.9-dev -y
 
 COPY . .
 RUN conda-env create -n training -f environment.yaml
