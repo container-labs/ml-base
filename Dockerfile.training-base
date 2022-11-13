@@ -4,7 +4,12 @@ FROM us-central1-docker.pkg.dev/md-wbeebe-0808-example-apps/mass-learn/base:late
 
 COPY . .
 RUN eval "$(conda shell.bash hook)" && conda activate training && \
-    pip install transformers
+    pip install transformers \
+    pytorch-lightning \
+    git+https://github.com/TencentARC/GFPGAN.git#egg=gfpgan \
+    git+https://github.com/openai/CLIP.git@main#egg=clip \
+    git+https://github.com/CompVis/taming-transformers.git@master#egg=taming-transformers \
+    git+https://github.com/Birch-san/k-diffusion.git@mps#egg=k_diffusion
 
     # # - getpass_asterisk
     # - dependency_injector==4.40.0
