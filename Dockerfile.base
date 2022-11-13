@@ -6,6 +6,6 @@ WORKDIR /ml-workspace
 
 COPY . .
 RUN conda init bash
-# RUN conda-env create -n training -f environment-base.yaml
+RUN conda-env create -n training -f environment-base.yaml
 
 CMD ["tail", "-f", "/dev/null"]
