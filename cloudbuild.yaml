@@ -4,7 +4,7 @@ steps:
   args: ['build', '-t', 'us-central1-docker.pkg.dev/md-wbeebe-0808-example-apps/mass-learn/base', '-f', 'Dockerfile.base', '.']
 - name: gcr.io/cloud-builders/docker
   id: training-base
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/md-wbeebe-0808-example-apps/mass-learn/training-base', '-f', 'Dockerfile.training-base', '.']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/md-wbeebe-0808-example-apps/mass-learn/training-base', '--build-arg', 'BASE_IMAGE=us-central1-docker.pkg.dev/md-wbeebe-0808-example-apps/mass-learn/base', '-f', 'Dockerfile.training-base', '.']
   waitFor: ['base']
 options:
   # since most of the build time is conda (python) setting up the environment
