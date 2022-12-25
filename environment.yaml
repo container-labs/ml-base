@@ -16,6 +16,7 @@ dependencies:
   - pytorch-cuda=11.7
   - torchaudio
   - numpy
+  - cloudml-hypertune
   - pip:
     # - getpass_asterisk
     - dependency_injector==4.40.0
