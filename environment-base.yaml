@@ -17,7 +17,6 @@ dependencies:
   - pytorch-cuda=11.7
   - huggingface_hub
   - numpy
-  - cloudml-hypertune
 
 
 
