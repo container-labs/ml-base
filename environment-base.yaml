@@ -5,7 +5,7 @@ channels:
   - nvidia
   - defaults
 dependencies:
-  - python>=3.9.0
+  - python==3.9.16
   - pip>=22.2.0
   # nightly install
   - cudatoolkit
